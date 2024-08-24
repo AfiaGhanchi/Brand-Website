@@ -1,4 +1,4 @@
-var makeupProduct = {
+var brandz = {
     First_Step: {
         Pakistan: [
             { img: "firstsh.webp", productName: "Shoes", price: "$10", shade: "Black", shadeImg: "fsh.webp" },
@@ -78,7 +78,7 @@ var shade = document.querySelector("#shade");
 
 brand.innerHTML = `<option value="">Select brand</option>`;
 
-for (var key in makeupProduct) {
+for (var key in brandz) {
     brand.innerHTML += `<option value="${key}">${key}</option>`;
 }
 
@@ -87,7 +87,7 @@ function displayProducts() {
     shade.innerHTML = `<option value="">Select shade</option>`;
     shade.style.display = 'none';
 
-    var selectedBrand = makeupProduct[brand.value];
+    var selectedBrand = brandz[brand.value];
 
     for (var country in selectedBrand) {
         var products = selectedBrand[country];
@@ -139,7 +139,7 @@ function displayProducts() {
 
 function filterByShade() {
     var selectedShade = shade.value;
-    var selectedBrand = makeupProduct[brand.value];
+    var selectedBrand = brandz[brand.value];
 
     if (selectedShade) {
         var products = selectedBrand.Pakistan.filter(product => product.shade === selectedShade);
